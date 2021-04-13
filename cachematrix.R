@@ -3,7 +3,7 @@
 > 
 > ## Write a short comment describing this function
 > 
-> makeCacheMatrix <- function(x = matrix()) {
+> makeCacheMatrix <- function(a = matrix()) {
 + 
 + setwd('C:/Users/rubind1/Documents/Coursera-R')
 + ##
