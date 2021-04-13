@@ -28,7 +28,7 @@
 + ## Write a short comment describing this function
 + 
 + ##
-+ ## Same here, changed "mean" to "solve" and "m" to "b"
++ ## Same here, changed "mean" to "solve" and "a" to "b"
 + cacheSolve <- function(a, ...) {
 +         ## Return a matrix that is the inverse of 'a'
 +   b <- a$getsolve()
