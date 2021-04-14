@@ -1,42 +1,31 @@
-## Put comments here that give an overall description of what your
-> ## functions do
-> 
-> ## Write a short comment describing this function
-> 
-> makeCacheMatrix <- function(a = matrix()) {
-+ 
-+ setwd('C:/Users/rubind1/Documents/Coursera-R')
-+ ##
-+ ## I simply set the input a as a matrix
-+ ## and then set the solved value "b" as a null
-+ ## then I changed every reference to "mean" to "solve"
-+ makeCacheMatrix <- function(a = matrix(sample(1:100,7),6,6)) {
-+   b <- NULL
-+   set <- function(z) {
-+     a <<- z
-+     b <<- NULL
-+   }
-+   get <- function() a
-+   setsolve <- function(solve) b <<- solve
-+   getsolve <- function() b
-+   list(set = set, get = get,
-+        setsolve = setsolve,
-+        getsolve = getsolve)
-+ }
-+ 
-+ 
-+ ## Write a short comment describing this function
-+ 
-+ ##
-+ ## Same here, changed "mean" to "solve" and "a" to "b"
-+ cacheSolve <- function(a, ...) {
-+         ## Return a matrix that is the inverse of 'a'
-+   b <- a$getsolve()
-+   if(!is.null(b)) {
-+     message("getting inversed matrix")
-+     return(b)
-+   }
-+   data <- a$get()
-+   b <- solve(data, ...)
-+   a$setsolve(b)
-+   a
+## Week 3 Assignment: Lexical Scoping
+## R Language
+## Input A - matrix
+## Input B - null
+
+makeCacheMatrix <- function(A = matrix(sample(1:200,7),2,2)) {
+  B <- NULL
+  set <- function(y) {
+    A <<- y
+    B <<- NULL
+  }
+  get <- function() A
+  setsolve <- function(solve) B <<- solve
+  getsolve <- function() B
+  list(set = set, get = get,
+       setsolve = setsolve,
+       getsolve = getsolve)
+}
+
+## Change "mean" -> "solve"
+cacheSolve <- function(A, ...) {
+  B <- A$getsolve()
+  if(!is.null(B)) {
+    message("getting inversed matrix")
+    return(B)
+  }
+  data <- A$get()
+  B <- solve(data, ...)
+  A$setsolve(B)
+  B
+}
